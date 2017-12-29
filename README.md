@@ -1,5 +1,6 @@
 # urlstripscan
-Strips provided link of O365 SafeLink wrapping, replaces identifying email addresses, submits to urlscan.io
+This script will take a URL, including one encoded by O365 SafeLinks and Base64, strip out attributable email addresses, 
+run it through urlscan.io, and provide links to analysis & screenshot. This will allow for analysis without attribution.
 
 ## Acquire urlscan.io API Key
 Details available here: https://urlscan.io/about-api/
@@ -10,8 +11,6 @@ Once key is acquired, add it to the config.ini file following the '=' sign which
 
 ## Usage
 urlstripscan.py [-h] [-s] link
-
-Runs a URL through urlscan.io and provides link to report and screenshot
 
 positional arguments:
   link        provide a link within double quotes
