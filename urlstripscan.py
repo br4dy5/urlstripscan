@@ -8,7 +8,6 @@ run it through urlscan.io, and provide links to analysis. This will allow for an
 
 import requests
 import time
-import json
 import argparse
 import urllib.parse
 import re
@@ -88,7 +87,8 @@ def scan_url(raw_link):
     data = {"url": raw_link}
     headers = {"API-Key": api_key}
     p = requests.post(scanner, headers=headers, data=data)
-
+    
+    # allow time for urlscan.io to analyze link
     time.sleep(15)
 
     results_url = p.json()['api']
@@ -98,8 +98,8 @@ def scan_url(raw_link):
     report_url = data['task']['reportURL']
     screenshot_url = data['task']['screenshotURL']
 
-    print("\n" + report_url)
-    print(screenshot_url)
+    print("Report: \n" + report_url)
+    print("\nScreenshot: \n" + screenshot_url)
 
 
 def main():
